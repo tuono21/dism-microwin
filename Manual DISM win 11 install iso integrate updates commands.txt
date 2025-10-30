@@ -54,11 +54,12 @@ Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
 
 Set user password if left blank in microwin - Run winutil json ( saved in C:\ by microwin ) then click Install Apps and then Run Tweaks
 
-windowsupdate
+windowsupdate and Store updates and Edge
 
 power settings
 
 done..jeezuz
+
 
 
 
