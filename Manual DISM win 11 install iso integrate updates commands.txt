@@ -36,11 +36,12 @@ dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
 --If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
 --Not too helpful with ventoy though
 
---use oscdimg.exe to create a new iso from the updated files in the win11iso folder
+--use oscdimg.exe to create a new iso in the update folder from the updated files in the win11iso folder
 oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
 
+Next:
 
-Run ISO through microwin/winutil (using same index number from earlier) with an apps/tweaks json file
+Run ISO through microwin/winutil (using same index number from earlier) with an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
 
 Install Windows, wait couple mins for microwin scripts to run, connect internet, allow windows drivers to install via windowsupdate
 (skipping this step might let windowsupdate overwrite drivers with older ones later - happened with AMD Ryzen Vega)
@@ -56,6 +57,7 @@ Set user password if left blank in microwin - Run winutil json ( saved in C:\ by
 windowsupdate
 
 done..jeezuz
+
 
 
 
