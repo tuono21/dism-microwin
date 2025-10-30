@@ -42,8 +42,8 @@ oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com
 
 Run ISO through microwin/winutil (using same index number from earlier) with an apps/tweaks json file
 
-Install Windows, wait couple mins for scripts to run, connect internet, allow windows drivers to install via windowsupdate
-(skipping this step might let windowsupdate overwrite drivers with older ones - happened with AMD Ryzen Vega)
+Install Windows, wait couple mins for microwin scripts to run, connect internet, allow windows drivers to install via windowsupdate
+(skipping this step might let windowsupdate overwrite drivers with older ones later - happened with AMD Ryzen Vega)
 
 drivers installed visible now in Settings|Windows Update|Update History
 
@@ -56,6 +56,7 @@ Set user password if left blank in microwin - Run winutil json ( saved in C:\ by
 windowsupdate
 
 done..jeezuz
+
 
 
 
