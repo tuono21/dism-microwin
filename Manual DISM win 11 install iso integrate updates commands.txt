@@ -36,7 +36,7 @@ dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
 --If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
 --Not too helpful with ventoy though
 
---use oscdimg.exe to create a new iso in the update folder from the updated files in the win11iso folder
+--use oscdimg.exe (from adk install) to create a new iso in the update folder from the updated files in the win11iso folder
 &"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
 
 Next:
