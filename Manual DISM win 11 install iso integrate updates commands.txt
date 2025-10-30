@@ -1,0 +1,52 @@
+May want to start by:
+	-installing the Windows Assessment and Deployment Kit (only deployment kit needed)
+	-deleting old logs in c:\windows\logs\dism\*
+	-disabling antivirus
+	-loglevel lines needed to prevent 500+MB logs each run!
+
+create 3 folders
+
+c:\win11iso    - extract the original iso file into this folder first with 7zip
+c:\win11mount  - this will contain the extracted install.wim from the above iso and be a work folder
+c:\win11update - put patches here, i.e. latest cumulative update and .net msu files from windows update catalog
+
+
+--1st check index number to modify
+dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
+
+
+--next mount install.wim from within extracted iso to another folder
+dism /loglevel=2 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
+
+
+--add windows update packages to the mounted WIM index
+dism /loglevel=2 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
+
+
+--verify that the newly integrated packages appear correctly
+dism /image:"c:\win11mount" /get-packages
+
+
+--save the changes and unmount the image - when complete, mount folder should be empty
+dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /commit
+
+possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already
+dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
+
+
+--use oscdimg.exe to create a new iso from the updated files in the win11iso folder
+oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
+
+
+Run ISO through microwin/winutil with an apps/tweaks json file
+
+Install Windows, connect internet, allow windows drivers to install
+
+Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
+
+Run winutil json
+
+windowsupdate
+
+done..jeezuz
+
