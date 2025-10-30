@@ -50,9 +50,10 @@ reboot as needed - AMD drivers wouldnt install because it thought windowsupdate 
 
 Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
 
-Run winutil json
+Run winutil json ( saved in C:\ by microwin )
 
 windowsupdate
 
 done..jeezuz
+
 
