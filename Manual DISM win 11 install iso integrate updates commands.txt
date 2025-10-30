@@ -44,6 +44,10 @@ Run ISO through microwin/winutil with an apps/tweaks json file
 
 Install Windows, wait couple mins for scripts to run, connect internet, allow windows drivers to install via windowsupdate
 
+drivers installed visible now in Settings|Windows Update|Update History
+
+reboot as needed - AMD drivers wouldnt install because it thought windowsupdate was still running
+
 Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
 
 Run winutil json
@@ -51,5 +55,3 @@ Run winutil json
 windowsupdate
 
 done..jeezuz
-
-
