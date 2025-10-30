@@ -37,7 +37,7 @@ dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
 --Not too helpful with ventoy though
 
 --use oscdimg.exe to create a new iso in the update folder from the updated files in the win11iso folder
-oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
+&"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
 
 Next:
 
@@ -61,6 +61,7 @@ power settings - taskbar settings - TZ and sync - location - notifications
 Settings Apps uninstall Appx then bleachbit!
 
 done..jeezuz
+
 
 
 
