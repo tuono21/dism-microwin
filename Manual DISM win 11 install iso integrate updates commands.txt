@@ -2,7 +2,7 @@ May want to start by:
 	-installing the Windows Assessment and Deployment Kit (only deployment kit needed)
 	-deleting old logs in c:\windows\logs\dism\*
 	-disabling antivirus
-	-loglevel lines needed to prevent 500+MB logs each run!
+	-loglevel lines below needed to prevent 500+MB logs each run!
 
 create 3 folders
 
@@ -33,6 +33,8 @@ dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /commit
 possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already
 dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
 
+--If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
+--Not too helpful with ventoy though
 
 --use oscdimg.exe to create a new iso from the updated files in the win11iso folder
 oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\Windows11-25H2-Updates.iso
@@ -40,7 +42,7 @@ oscdimg.exe -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com
 
 Run ISO through microwin/winutil with an apps/tweaks json file
 
-Install Windows, connect internet, allow windows drivers to install
+Install Windows, wait couple mins for scripts to run, connect internet, allow windows drivers to install via windowsupdate
 
 Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
 
@@ -49,4 +51,5 @@ Run winutil json
 windowsupdate
 
 done..jeezuz
+
 
