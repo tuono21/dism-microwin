@@ -61,15 +61,3 @@ power settings - taskbar settings - TZ and sync - location - notifications
 Settings Apps uninstall Appx then bleachbit!
 
 done..jeezuz
-
-
-
-
-
-
-
-
-
-
-
-
