@@ -56,8 +56,9 @@ Set user password if left blank in microwin - Run winutil json ( saved in C:\ by
 
 windowsupdate and Store updates and Edge
 
-power settings - taskbar settings - TZ and sync - location - notifications
+power settings - taskbar settings - TZ and sync - location - notifications - apps startup
 
 Settings Apps uninstall Appx then bleachbit!
 
 done..jeezuz
+
