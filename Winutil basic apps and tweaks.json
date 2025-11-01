@@ -1,4 +1,4 @@
-﻿{
+{
     "WPFTweaks":  [
                       "WPFTweaksTeredo",
                       "WPFTweaksWifi",
@@ -37,6 +37,10 @@
                         "choco":  "7zip"
                     },
                     {
+                        "winget":  "EFIBootEditor.EFIBootEditor",
+                        "choco":  "na"
+                    },
+                    {
                         "winget":  "TheDocumentFoundation.LibreOffice",
                         "choco":  "libreoffice-fresh"
                     },
@@ -63,20 +67,25 @@
                     {
                         "winget":  "JAMSoftware.TreeSize.Free",
                         "choco":  "treesizefree"
+                    },
+                    {
+                        "winget":  "BleachBit.BleachBit",
+                        "choco":  "bleachbit"
                     }
                 ],
     "WPFInstall":  [
                        "WPFInstall7zip",
+                       "WPFInstallefibooteditor",
                        "WPFInstalllibreoffice",
                        "WPFInstallnotepadplus",
                        "WPFInstalladobe",
                        "WPFInstallbrave",
                        "WPFInstallTeraCopy",
                        "WPFInstallvlc",
-                       "WPFInstalltreesize"
+                       "WPFInstalltreesize",
+                       "WPFInstallbleachbit"
                    ],
     "WPFFeature":  [
 
                    ]
 }
-
