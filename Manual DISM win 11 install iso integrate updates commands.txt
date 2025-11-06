@@ -44,6 +44,7 @@ Next:
 Run ISO through microwin/winutil (using same index number from earlier) without an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
 
 ***OR SKIP ALL THAT AND USE MODIFIED WINUTIL 11-4-25 TO INSERT CUMULATIVE AND .NET UPDATES WITHIN MICROWIN (c:\win11updates folder) *******
+*** DONT USE CUMULATIVE OR OTHER PREVIEW UPDATES - PREVIOUS NON-PREVIEW UPDATE WILL THEN STILL GET INSTALLED BY WINDOWSUPDATE :( **
 ** DONT USE JSON CONFIG WITHIN MICROWIN (NOV 25) AS APPS AND FEATURES WONT INSTALL ***
 
 Install Windows with wired NIC connected, wait couple mins for microwin scripts to run, allow windows drivers to install via windowsupdate
@@ -70,5 +71,6 @@ done..jeezuz
 
 Edge added to apps in json winutil file will update it
 Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
+
 
 
