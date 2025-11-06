@@ -41,24 +41,32 @@ dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
 
 Next:
 
-Run ISO through microwin/winutil (using same index number from earlier) with an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
+Run ISO through microwin/winutil (using same index number from earlier) without an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
 
-Install Windows, wait couple mins for microwin scripts to run, connect internet, allow windows drivers to install via windowsupdate
-(skipping this step might let windowsupdate overwrite drivers with older ones later - happened with AMD Ryzen Vega)
+***OR SKIP ALL THAT AND USE MODIFIED WINUTIL 11-4-25 TO INSERT CUMULATIVE AND .NET UPDATES WITHIN MICROWIN (c:\win11updates folder) *******
+** DONT USE JSON CONFIG WITHIN MICROWIN (NOV 25) AS APPS AND FEATURES WONT INSTALL ***
 
-drivers installed visible now in Settings|Windows Update|Update History
+Install Windows with wired NIC connected, wait couple mins for microwin scripts to run, allow windows drivers to install via windowsupdate
+(skipping this step might let windowsupdate overwrite manually installed drivers with older ones later - happened with AMD Ryzen Vega)
 
-reboot as needed - AMD drivers wouldnt install because it thought windowsupdate was still running
+drivers and updates that were just installed will be visible now in Settings|Windows Update|Update History
 
-Install other drivers manually (CPU/GPU, chipset, NIC/wifi)
+reboot as needed - i.e. AMD drivers wouldnt install because it thought windowsupdate was still running
 
-Set user password if left blank in microwin - Run winutil json ( saved in C:\ by microwin ) then click Install Apps and then Run Tweaks
+windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added) and then Store updates 
 
-windowsupdate and Store updates and Edge
+Set a windows user password if left blank in microwin 
+**May need to run 'set-executionpolicy remotesigned' in powershell to run compiled winutil from desktop**
+then run winutil Config | WinGet Reinstall (app installs fail without this)
+close and reopen winutil and finally use json file to Install Apps and then Run Tweaks
 
 power settings - taskbar settings - TZ and sync - location - notifications - apps startup
 
-Settings Apps uninstall Appx then bleachbit!
+bleachbit and disk cleanup
+
+Install other drivers manually (CPU/GPU, chipset, NIC/wifi) - AMD gfx last
 
 done..jeezuz
 
+Edge added to apps in json winutil file will update it
+Config|Features dont seem to work so leave out of json 11-6-25
