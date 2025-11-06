@@ -55,7 +55,7 @@ reboot as needed - i.e. AMD drivers wouldnt install because it thought windowsup
 
 windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added) and then Store updates 
 
-Set a windows user password if left blank in microwin 
+Set a windows user password if left blank in microwin and copy over json file and compiled winutil.ps1 file
 **May need to run 'set-executionpolicy remotesigned' in powershell to run compiled winutil from desktop**
 then run winutil Config | WinGet Reinstall (app installs fail without this)
 close and reopen winutil and finally use json file to Install Apps and then Run Tweaks
@@ -70,4 +70,5 @@ done..jeezuz
 
 Edge added to apps in json winutil file will update it
 Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
+
 
