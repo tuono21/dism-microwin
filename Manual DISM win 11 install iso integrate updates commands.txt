@@ -69,4 +69,5 @@ Install other drivers manually (CPU/GPU, chipset, NIC/wifi) - AMD gfx last
 done..jeezuz
 
 Edge added to apps in json winutil file will update it
-Config|Features dont seem to work so leave out of json 11-6-25
+Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
+
