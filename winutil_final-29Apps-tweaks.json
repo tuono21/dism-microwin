@@ -1,0 +1,183 @@
+{
+  "WPFTweaks": [
+    "WPFTweaksDebloatAdobe",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksRemoveOnedrive",
+    "WPFTweaksTele",
+    "WPFTweaksRecallOff",
+    "WPFTweaksDVR",
+    "WPFTweaksDisableExplorerAutoDiscovery",
+    "WPFTweaksRemoveCopilot",
+    "WPFTweaksTeredo",
+    "WPFTweaksEndTaskOnTaskbar",
+    "WPFTweaksStorage",
+    "WPFTweaksHome",
+    "WPFTweaksDisableLMS1",
+    "WPFTweaksServices",
+    "WPFTweaksRazerBlock",
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksWifi",
+    "WPFTweaksPowershell7Tele",
+    "WPFTweaksLoc",
+    "WPFTweaksEdgeDebloat",
+    "WPFTweaksBraveDebloat",
+    "WPFTweaksRemoveHome",
+    "WPFTweaksDisableBGapps",
+    "WPFTweaksRemoveGallery",
+    "WPFTweaksPowershell7",
+    "WPFTweaksAH",
+    "WPFTweaksDisableWpbtExecution",
+    "WPFTweaksBlockAdobeNet",
+    "WPFTweaksDeleteTempFiles"
+  ],
+  "Install": [
+    {
+      "winget": "Microsoft.Sysinternals.ProcessMonitor",
+      "choco": "procexp"
+    },
+    {
+      "winget": "TechPowerUp.GPU-Z",
+      "choco": "gpu-z"
+    },
+    {
+      "winget": "WinMerge.WinMerge",
+      "choco": "winmerge"
+    },
+    {
+      "winget": "Microsoft.Sysinternals.Autoruns",
+      "choco": "autoruns"
+    },
+    {
+      "winget": "Git.Git",
+      "choco": "git"
+    },
+    {
+      "winget": "Microsoft.Edge",
+      "choco": "microsoft-edge"
+    },
+    {
+      "winget": "7zip.7zip",
+      "choco": "7zip"
+    },
+    {
+      "winget": "PuTTY.PuTTY",
+      "choco": "putty"
+    },
+    {
+      "winget": "BleachBit.BleachBit",
+      "choco": "bleachbit"
+    },
+    {
+      "winget": "EFIBootEditor.EFIBootEditor",
+      "choco": "na"
+    },
+    {
+      "winget": "TheDocumentFoundation.LibreOffice",
+      "choco": "libreoffice-fresh"
+    },
+    {
+      "winget": "CrystalDewWorld.CrystalDiskMark",
+      "choco": "crystaldiskmark"
+    },
+    {
+      "winget": "CodeSector.TeraCopy",
+      "choco": "TeraCopy"
+    },
+    {
+      "winget": "Rufus.Rufus",
+      "choco": "rufus"
+    },
+    {
+      "winget": "MHNexus.HxD",
+      "choco": "HxD"
+    },
+    {
+      "winget": "Adobe.Acrobat.Reader.64-bit",
+      "choco": "adobereader"
+    },
+    {
+      "winget": "sylikc.JPEGView",
+      "choco": "jpegview"
+    },
+    {
+      "winget": "REALiX.HWiNFO",
+      "choco": "hwinfo"
+    },
+    {
+      "winget": "VideoLAN.VLC",
+      "choco": "vlc"
+    },
+    {
+      "winget": "Microsoft.PowerShell",
+      "choco": "powershell-core"
+    },
+    {
+      "winget": "angryziber.AngryIPScanner",
+      "choco": "angryip"
+    },
+    {
+      "winget": "JAMSoftware.TreeSize.Free",
+      "choco": "treesizefree"
+    },
+    {
+      "winget": "Brave.Brave",
+      "choco": "brave"
+    },
+    {
+      "winget": "Notepad++.Notepad++",
+      "choco": "notepadplusplus"
+    },
+    {
+      "winget": "qBittorrent.qBittorrent",
+      "choco": "qbittorrent"
+    },
+    {
+      "winget": "CPUID.CPU-Z",
+      "choco": "cpu-z"
+    },
+    {
+      "winget": "LIGHTNINGUK.ImgBurn",
+      "choco": "imgburn"
+    },
+    {
+      "winget": "CrystalDewWorld.CrystalDiskInfo",
+      "choco": "crystaldiskinfo"
+    },
+    {
+      "winget": "Meld.Meld",
+      "choco": "meld"
+    }
+  ],
+  "WPFFeature": [],
+  "WPFInstall": [
+    "WPFInstallprocessmonitor",
+    "WPFInstallgpuz",
+    "WPFInstallwinmerge",
+    "WPFInstallautoruns",
+    "WPFInstallgit",
+    "WPFInstalledge",
+    "WPFInstall7zip",
+    "WPFInstallputty",
+    "WPFInstallbleachbit",
+    "WPFInstallefibooteditor",
+    "WPFInstalllibreoffice",
+    "WPFInstallcrystaldiskmark",
+    "WPFInstallTeraCopy",
+    "WPFInstallrufus",
+    "WPFInstallxeheditor",
+    "WPFInstalladobe",
+    "WPFInstalljpegview",
+    "WPFInstallhwinfo",
+    "WPFInstallvlc",
+    "WPFInstallpowershell",
+    "WPFInstallangryipscanner",
+    "WPFInstalltreesize",
+    "WPFInstallbrave",
+    "WPFInstallnotepadplus",
+    "WPFInstallqbittorrent",
+    "WPFInstallcpuz",
+    "WPFInstallimgburn",
+    "WPFInstallcrystaldiskinfo",
+    "WPFInstallmeld"
+  ]
+}
