@@ -74,6 +74,7 @@ Disable HP services in Computer Management
 
 Disable hibernation on low disk space systems
 	powercfg -h off
+Disable paging file - Right click Windows|System|advanced|Performance|advanced|virtual memory|change button
 
 bleachbit and disk cleanup
 
@@ -82,6 +83,7 @@ done..jeezuz
 
 Edge added to apps in json winutil file will update it unless manually installed already...
 Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
+
 
 
 
