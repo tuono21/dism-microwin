@@ -80,15 +80,11 @@ bleachbit and disk cleanup
 
 done..jeezuz
 
-After App installs (33 Apps jsonm in winutil) about 6.5GB free on 55GB partition
+After App installs (33 Apps json in winutil) about 6.5GB free on 55GB partition
 
-after cleanup  GB free
+after cleanup about 11 GB free
 
-Edge added to apps in json winutil file will update it unless manually installed already...
-Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
-
-
-
-
+Edge added to apps in json winutil file will update it unless manually installed already then conflicts...
+Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json and install manually as of 11-6-25
 
 
