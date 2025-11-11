@@ -86,4 +86,13 @@ Edge added to apps in json winutil file will update it unless manually installed
 Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json and install manually as of 11-6-25
 
 
+********* WINDOWS TO GO ***********
+
+Use Rufus to install windows on a USB drive using the microwin created iso.
+
+Deselect all options within Rufus since those bypass features are taken care of by microwin but also the unattend.xml file will already exist from microwin.
+
+Ignore error related to the unattend.xml during rufus' last steps as the microwin file is already there and will work fine.
+
+Copy Drivers and Snappy Installer to win2go drive and its ready to boot
 
