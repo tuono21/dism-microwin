@@ -80,9 +80,13 @@ bleachbit and disk cleanup
 
 done..jeezuz
 
+After App installs (33 Apps jsonm in winutil) about 6.5GB free on 55GB partition
+
+after cleanup  GB free
 
 Edge added to apps in json winutil file will update it unless manually installed already...
 Config|Features (All .net and Windows Sandbox) dont seem to work so leave out of json 11-6-25
+
 
 
 
