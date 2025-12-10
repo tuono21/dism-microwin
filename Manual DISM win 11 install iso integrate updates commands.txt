@@ -8,26 +8,53 @@ create 3 folders
 
 c:\win11iso    - extract the original iso file into this folder first with 7zip
 c:\win11mount  - this will contain the extracted install.wim from the above iso and be a work folder
+c:\win11mountwinre - will contain the extracted winre.wim for KB5072537: Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE).
 c:\win11update - put patches here, i.e. latest cumulative update and .net msu files from windows update catalog
+C:\win11reupdates - winre update cab file
 
 
 --1st check index number to modify - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
-
---next mount install.wim from within extracted iso to another folder
+--next mount install.wim from within extracted iso to another folder - note index below
 dism /loglevel=2 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
+========== Adding Safe OS Dynamic Update .cab file into winre.wim first
+--index 1 for winre.wim as its the only one in this file 
+Dism /Mount-Wim /WimFile:C:\win11mount\Windows\System32\Recovery\winre.wim /index:1 /MountDir:C:\win11mountwinre
+
+--dec 9 2025 update cab file
+Dism /Add-Package /Image:C:\win11mountwinre /PackagePath:"C:\win11reupdates\windows11.0-kb5072537-x64_778caa2b6baaaf652e027673a94f480d03072b3b.cab"
+
+--check if package installed correctly with 
+Dism /Image:C:\win11mountwinre\ /Get-Packages
+
+should show something like:
+Deployment Image Servicing and Management tool
+Version: 10.0.26100.5074
+
+Image Version: 10.0.26100.7447           **Latest version of winre displayed here already
+
+Packages listing:
+...
+Package Identity : Package_for_SafeOSDU~31bf3856ad364e35~amd64~~26100.7447.1.2   ***7447 is latest version
+State : Installed
+Release Type : Update
+Install Time : 12/10/2025 4:35 AM            ***CURREnT DATE HERE
+
+--cleanup and commit winre.wim file - when complete, win11mountwinre should be empty and wim file in sys32/recovery newer
+dism /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
+
+Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
+========= end winre update
 
 --add windows update packages to the mounted WIM index
 dism /loglevel=2 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
 
-
 --verify that the newly integrated packages appear correctly
 dism /image:"c:\win11mount" /get-packages
 
-
---save the changes and unmount the image - when complete, mount folder should be empty
+--save the changes and unmount the image - when complete, mount folder should be empty and sources\install.wim newer
 dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /commit
 
 possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already
@@ -95,5 +122,6 @@ Deselect all options within Rufus since those bypass features are taken care of 
 Ignore error related to the unattend.xml during rufus' last steps as the microwin file is already there and will work fine.
 
 Copy Drivers and Snappy Installer to win2go drive and its ready to boot
+
 
 
