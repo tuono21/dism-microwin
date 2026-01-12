@@ -1,3 +1,7 @@
+
+MANUALLY slipstream WINDOWS UPDATES INTO WINDOWS ISO
+==============================================================================================
+
 May want to start by:
 	-installing the Windows Assessment and Deployment Kit (only deployment kit needed)
 	-deleting old logs in c:\windows\logs\dism\*
@@ -74,36 +78,48 @@ Run ISO through microwin/winutil (using same index number from earlier) without 
 *** DONT USE CUMULATIVE OR OTHER PREVIEW UPDATES - PREVIOUS NON-PREVIEW UPDATE WILL THEN STILL GET INSTALLED BY WINDOWSUPDATE :( **
 ** DONT USE JSON CONFIG WITHIN MICROWIN (NOV 25) AS APPS AND FEATURES WONT INSTALL ***
 
+==============================================================================
+AFTER ISO PREPARED
+
 Install Windows with wired NIC connected, wait couple mins for microwin scripts to run, allow windows drivers to install via windowsupdate
 (skipping this step might let windowsupdate overwrite manually installed drivers with older ones later - happened with AMD Ryzen Vega)
 
 drivers and updates that were just installed will be visible now in Settings|Windows Update|Update History
 
+UPDATE these settings: 
+system|power (sleep) settings AND Control Panel|All..|Power Options|System Settings to set hibernation
+TZ and sync
+taskbar settings
+privacy|location and notifications - system|notifications also
+apps startup
+win update|advanced|delivery optimization
+Run Defrag and unselect scheduled optimization
+
 reboot as needed - i.e. AMD drivers wouldnt install because it thought windowsupdate was still running
 
-windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added) and then Store updates 
+Run windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added)
+and then Store updates
 
-Set a windows user password if left blank in microwin and copy over json file and compiled winutil.ps1 file
+*Set a windows user password if left blank in microwin and copy over json file and compiled winutil.ps1 file
 **May need to run ' set-executionpolicy remotesigned ' and/or '  Unblock-File <script> ' in powershell to run compiled winutil from desktop**
-then run winutil Config | WinGet Reinstall (app installs hang on some systems without this)
-close and reopen winutil and finally use json file to Install Apps and then Run Tweaks
+*then run winutil Config | WinGet Reinstall (app installs hang on some systems without this)
+*close and 
+
+reopen winutil and finally use json file to Install Apps and then Run Tweaks
 
 Install other drivers manually (CPU/GPU, chipset, NIC/wifi) - AMD gfx last after reboot? on ryzen pro lenovo
 
 Snappy Driver Installer Origin
 
-system|power (sleep) settings - taskbar settings - TZ and sync - privacy|location and notifications - system|notifications also - apps startup
-win update|advanced|delivery optimization
-
-settings|system|optional features|more windows features (sandbox and .net 2,3,3.5)
+settings|system|optional features|more windows features (for sandbox and .net 2,3,3.5 etc)
 
 Disable HP services in Computer Management
 
 Disable hibernation on low disk space systems
 	powercfg -h off
-Disable paging file - Right click Windows|System|advanced|Performance|advanced|virtual memory|change button
+Disable paging file on low disk space systems - Right click Windows|System|advanced|Performance|advanced|virtual memory|change button
 
-bleachbit and disk cleanup
+bleachbit and windows disk cleanup
 
 done..jeezuz
 
@@ -124,9 +140,10 @@ Ignore error related to the unattend.xml during rufus' last steps as the microwi
 Copy Drivers and Snappy Installer to win2go drive and its ready to boot
 
 
-**COMPILING
+**FOR COMPILING
 
 # Unblock every file under C:\Downloads and its subfolders
 Get-ChildItem -Path "C:\Downloads" -Recurse | Unblock-File
+
 
 
