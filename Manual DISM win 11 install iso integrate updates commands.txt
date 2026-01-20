@@ -90,6 +90,7 @@ UPDATE these settings:
 system|power (sleep) settings AND Control Panel|All..|Power Options|System Settings to set hibernation
 TZ and sync
 taskbar settings
+autoplay
 privacy|location and notifications - system|notifications also
 apps startup
 win update|advanced|delivery optimization
@@ -144,6 +145,7 @@ Copy Drivers and Snappy Installer to win2go drive and its ready to boot
 
 # Unblock every file under C:\Downloads and its subfolders
 Get-ChildItem -Path "C:\Downloads" -Recurse | Unblock-File
+
 
 
 
