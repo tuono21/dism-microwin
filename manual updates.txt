@@ -1,0 +1,39 @@
+      Write-Host "*** Adding updates to the image from the c:\win11updates folder ***"
+        #  --add windows update packages to the mounted WIM index
+        #  dism /loglevel=2 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11updates"
+        # PS C:\> Add-WindowsPackage -Path "c:\offline" -PackagePath "c:\packages" -IgnoreCheck
+        Add-WindowsPackage -LogLevel 1 -Path "$scratchDir" -PackagePath "c:\win11updates"
+
+        Write-Host "*** Updates completed installing ***"
+
+Run shell as administrator
+
+set-executionpolicy remotesigned
+
+Add-WindowsPackage -LogLevel 1 -IgnoreCheck -Online -PackagePath "d:\win11updates\"
+
+
+For just the .NET updates 
+===============
+
+DISM /loglevel=1 /Online /Add-Package /PackagePath:"d:\win11updates\"
+
+
+dism /online /get-packages | select-string -context 3,0 -pattern "1/20/2026"
+
+	or | findstr /i 5074109
+
+
+winver		7623?
+
+GetWinReVersion  4774
+
+REBOOT AFTER INITIAL INSTALL OR CUMULATIVE PATCH WILL REINSTALL IN WINDOWSUPDATE!! :(
+
+
+DISM FAILS with cumulative offline? - try WUSA update.msu instead
+
+
+wusa windows11.0-kb5074109-x64_fe29a336e6e650dda4038e82bcc0c6286c70b9a1.msu /quiet /norestart
+
+
