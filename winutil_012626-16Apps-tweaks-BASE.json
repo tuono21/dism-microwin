@@ -1,0 +1,107 @@
+{
+  "Install": [
+    {
+      "winget": "JAMSoftware.TreeSize.Free",
+      "choco": "treesizefree"
+    },
+    {
+      "winget": "Brave.Brave",
+      "choco": "brave"
+    },
+    {
+      "winget": "CodeSector.TeraCopy",
+      "choco": "TeraCopy"
+    },
+    {
+      "winget": "BleachBit.BleachBit",
+      "choco": "bleachbit"
+    },
+    {
+      "winget": "Microsoft.Edge",
+      "choco": "microsoft-edge"
+    },
+    {
+      "winget": "Microsoft.PowerShell",
+      "choco": "powershell-core"
+    },
+    {
+      "winget": "EFIBootEditor.EFIBootEditor",
+      "choco": "na"
+    },
+    {
+      "winget": "7zip.7zip",
+      "choco": "7zip"
+    },
+    {
+      "winget": "Notepad++.Notepad++",
+      "choco": "notepadplusplus"
+    },
+    {
+      "winget": "Microsoft.Sysinternals.Autoruns",
+      "choco": "autoruns"
+    },
+    {
+      "winget": "VideoLAN.VLC",
+      "choco": "vlc"
+    },
+    {
+      "winget": "TheDocumentFoundation.LibreOffice",
+      "choco": "libreoffice-fresh"
+    },
+    {
+      "winget": "Adobe.Acrobat.Reader.64-bit",
+      "choco": "adobereader"
+    },
+    {
+      "winget": "Microsoft.Sysinternals.ProcessMonitor",
+      "choco": "procexp"
+    },
+    {
+      "winget": "sylikc.JPEGView",
+      "choco": "jpegview"
+    }
+  ],
+  "WPFFeature": [],
+  "WPFInstall": [
+    "WPFInstalltreesize",
+    "WPFInstallbrave",
+    "WPFInstallTeraCopy",
+    "WPFInstallbleachbit",
+    "WPFInstalledge",
+    "WPFInstallpowershell",
+    "WPFInstallefibooteditor",
+    "WPFInstall7zip",
+    "WPFInstallnotepadplus",
+    "WPFInstallautoruns",
+    "WPFInstallvlc",
+    "WPFInstalllibreoffice",
+    "WPFInstalladobe",
+    "WPFInstallprocessmonitor",
+    "WPFInstalljpegview"
+  ],
+  "WPFTweaks": [
+    "WPFTweaksDeleteTempFiles",
+    "WPFTweaksTelemetry",
+    "WPFTweaksRemoveHome",
+    "WPFTweaksEndTaskOnTaskbar",
+    "WPFTweaksRazerBlock",
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksLocation",
+    "WPFTweaksServices",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksDisableBGapps",
+    "WPFTweaksTeredo",
+    "WPFTweaksActivity",
+    "WPFTweaksDVR",
+    "WPFTweaksDisableExplorerAutoDiscovery",
+    "WPFTweaksWPBT",
+    "WPFTweaksPowershell7Tele",
+    "WPFTweaksRemoveGallery",
+    "WPFTweaksStorage",
+    "WPFTweaksRemoveCopilot",
+    "WPFTweaksBlockAdobeNet",
+    "WPFTweaksEdgeDebloat",
+    "WPFTweaksLaptopHibernation",
+    "WPFTweaksBraveDebloat"
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "WPFInstall": [
+    "WPFInstallefibooteditor",
+    "WPFInstallnotepadplus",
+    "WPFInstallmsiafterburner",
+    "WPFInstalllazygit",
+    "WPFInstallbrave",
+    "WPFInstallgpuz",
+    "WPFInstallgit",
+    "WPFInstallpiimager",
+    "WPFInstallwinmerge",
+    "WPFInstallpowershell",
+    "WPFInstallcrystaldiskinfo",
+    "WPFInstallcpuz",
+    "WPFInstallimgburn",
+    "WPFInstallputty",
+    "WPFInstalljpegview",
+    "WPFInstall7zip",
+    "WPFInstallmeld",
+    "WPFInstallbleachbit",
+    "WPFInstallvlc",
+    "WPFInstallcrystaldiskmark",
+    "WPFInstalladobe",
+    "WPFInstallautoruns",
+    "WPFInstallTeraCopy",
+    "WPFInstallklite",
+    "WPFInstalllibreoffice",
+    "WPFInstalledge",
+    "WPFInstallqbittorrent",
+    "WPFInstallprocessmonitor",
+    "WPFInstallxeheditor",
+    "WPFInstallfiles",
+    "WPFInstallrufus",
+    "WPFInstalltreesize",
+    "WPFInstallangryipscanner",
+    "WPFInstallhwinfo"
+  ],
+  "WPFTweaks": [
+    "WPFTweaksActivity",
+    "WPFTweaksRightClickMenu",
+    "WPFTweaksRazerBlock",
+    "WPFTweaksRemoveCopilot",
+    "WPFTweaksDisableBGapps",
+    "WPFTweaksEndTaskOnTaskbar",
+    "WPFTweaksDeleteTempFiles",
+    "WPFTweaksTelemetry",
+    "WPFTweaksServices",
+    "WPFTweaksDisableExplorerAutoDiscovery",
+    "WPFTweaksWPBT",
+    "WPFTweaksRemoveGallery",
+    "WPFTweaksLaptopHibernation",
+    "WPFTweaksPowershell7Tele",
+    "WPFTweaksDVR",
+    "WPFTweaksStorage",
+    "WPFTweaksLocation",
+    "WPFTweaksConsumerFeatures",
+    "WPFTweaksTeredo",
+    "WPFTweaksBlockAdobeNet",
+    "WPFTweaksEdgeDebloat",
+    "WPFTweaksBraveDebloat",
+    "WPFTweaksRemoveHome"
+  ],
+  "Install": [
+    {
+      "winget": "EFIBootEditor.EFIBootEditor",
+      "choco": "na"
+    },
+    {
+      "winget": "Notepad++.Notepad++",
+      "choco": "notepadplusplus"
+    },
+    {
+      "winget": "Guru3D.Afterburner",
+      "choco": "msiafterburner"
+    },
+    {
+      "winget": "JesseDuffield.lazygit",
+      "choco": "lazygit"
+    },
+    {
+      "winget": "Brave.Brave",
+      "choco": "brave"
+    },
+    {
+      "winget": "TechPowerUp.GPU-Z",
+      "choco": "gpu-z"
+    },
+    {
+      "winget": "Git.Git",
+      "choco": "git"
+    },
+    {
+      "winget": "RaspberryPiFoundation.RaspberryPiImager",
+      "choco": "rpi-imager"
+    },
+    {
+      "winget": "WinMerge.WinMerge",
+      "choco": "winmerge"
+    },
+    {
+      "winget": "Microsoft.PowerShell",
+      "choco": "powershell-core"
+    },
+    {
+      "winget": "CrystalDewWorld.CrystalDiskInfo",
+      "choco": "crystaldiskinfo"
+    },
+    {
+      "winget": "CPUID.CPU-Z",
+      "choco": "cpu-z"
+    },
+    {
+      "winget": "LIGHTNINGUK.ImgBurn",
+      "choco": "imgburn"
+    },
+    {
+      "winget": "PuTTY.PuTTY",
+      "choco": "putty"
+    },
+    {
+      "winget": "sylikc.JPEGView",
+      "choco": "jpegview"
+    },
+    {
+      "winget": "7zip.7zip",
+      "choco": "7zip"
+    },
+    {
+      "winget": "Meld.Meld",
+      "choco": "meld"
+    },
+    {
+      "winget": "BleachBit.BleachBit",
+      "choco": "bleachbit"
+    },
+    {
+      "winget": "VideoLAN.VLC",
+      "choco": "vlc"
+    },
+    {
+      "winget": "CrystalDewWorld.CrystalDiskMark",
+      "choco": "crystaldiskmark"
+    },
+    {
+      "winget": "Adobe.Acrobat.Reader.64-bit",
+      "choco": "adobereader"
+    },
+    {
+      "winget": "Microsoft.Sysinternals.Autoruns",
+      "choco": "autoruns"
+    },
+    {
+      "winget": "CodeSector.TeraCopy",
+      "choco": "TeraCopy"
+    },
+    {
+      "winget": "CodecGuide.K-LiteCodecPack.Standard",
+      "choco": "k-litecodecpack-standard"
+    },
+    {
+      "winget": "TheDocumentFoundation.LibreOffice",
+      "choco": "libreoffice-fresh"
+    },
+    {
+      "winget": "Microsoft.Edge",
+      "choco": "microsoft-edge"
+    },
+    {
+      "winget": "qBittorrent.qBittorrent",
+      "choco": "qbittorrent"
+    },
+    {
+      "winget": "Microsoft.Sysinternals.ProcessMonitor",
+      "choco": "procexp"
+    },
+    {
+      "winget": "MHNexus.HxD",
+      "choco": "HxD"
+    },
+    {
+      "winget": "na",
+      "choco": "files"
+    },
+    {
+      "winget": "Rufus.Rufus",
+      "choco": "rufus"
+    },
+    {
+      "winget": "JAMSoftware.TreeSize.Free",
+      "choco": "treesizefree"
+    },
+    {
+      "winget": "angryziber.AngryIPScanner",
+      "choco": "angryip"
+    },
+    {
+      "winget": "REALiX.HWiNFO",
+      "choco": "hwinfo"
+    }
+  ],
+  "WPFFeature": []
+}
