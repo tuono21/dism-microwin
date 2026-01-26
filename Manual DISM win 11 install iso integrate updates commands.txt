@@ -21,7 +21,7 @@ C:\win11reupdates - winre update cab file
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
 --next mount install.wim from within extracted iso to another folder - note index below
-dism /loglevel=2 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
+dism /loglevel=1 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
 ========== Adding Safe OS Dynamic Update .cab file into winre.wim first
 --index 1 for winre.wim as its the only one in this file 
@@ -53,16 +53,16 @@ Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 ========= end winre update
 
 --add windows update packages to the mounted WIM index
-dism /loglevel=2 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
+dism /loglevel=1 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
 
 --verify that the newly integrated packages appear correctly
 dism /image:"c:\win11mount" /get-packages
 
 --save the changes and unmount the image - when complete, mount folder should be empty and sources\install.wim newer
-dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /commit
+dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /commit
 
 possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already
-dism /loglevel=2 /unmount-wim /mountdir:"c:\win11mount" /discard
+dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /discard
 
 --If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
 --Not too helpful with ventoy though
@@ -74,9 +74,13 @@ Next:
 
 Run ISO through microwin/winutil (using same index number from earlier) without an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
 
-***OR SKIP ALL THAT AND USE MODIFIED WINUTIL 11-4-25 TO INSERT CUMULATIVE AND .NET UPDATES WITHIN MICROWIN (c:\win11updates folder) *******
-*** DONT USE CUMULATIVE OR OTHER PREVIEW UPDATES - PREVIOUS NON-PREVIEW UPDATE WILL THEN STILL GET INSTALLED BY WINDOWSUPDATE :( **
-** DONT USE JSON CONFIG WITHIN MICROWIN (NOV 25) AS APPS AND FEATURES WONT INSTALL ***
+=============================================================================
+
+*** OR SKIP ALL THAT AND USE MODIFIED WINUTIL 01-26-26 TO INSERT CUMULATIVE AND .NET UPDATES WITHIN MICROWIN (c:\win11updates folder) ***
+*** USE BASE MONTHLY CUMULATIVE WITH LATER PREVIEW UPDATES - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL EARLIER PATCH AGAIN! :( ***
+*** IF USING JSON CONFIG WITHIN MICROWIN, ONLY TWEAKS INSTALL - APPS AND FEATURES WONT INSTALL - SEEMS TO BE DELAY IN WINUTIL LOADING APPS AND SKIPPING THEM ***
+
+**** WARNING!!! ONLY USE POWERSHELL 5 AS 7 BREAKS THINGS OR MAYBE THATS NOT HAVING BASE CUMULATIVE PATCHES..?? ****
 
 ==============================================================================
 AFTER ISO PREPARED
@@ -95,22 +99,24 @@ privacy|location and notifications - system|notifications also
 apps startup
 win update|advanced|delivery optimization
 Run Defrag and unselect scheduled optimization
+Set hostname
 
 reboot as needed - i.e. AMD drivers wouldnt install because it thought windowsupdate was still running
 
 Run windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added)
 and then Store updates
 
-*Set a windows user password if left blank in microwin and copy over json file and compiled winutil.ps1 file
-**May need to run ' set-executionpolicy remotesigned ' and/or '  Unblock-File <script> ' in powershell to run compiled winutil from desktop**
-*then run winutil Config | WinGet Reinstall (app installs hang on some systems without this)
-*close and 
-
-reopen winutil and finally use json file to Install Apps and then Run Tweaks
-
 Install other drivers manually (CPU/GPU, chipset, NIC/wifi) - AMD gfx last after reboot? on ryzen pro lenovo
 
 Snappy Driver Installer Origin
+
+*Set a windows user password if left blank in microwin and copy over json file and compiled winutil.ps1 file
+**May need to run ' set-executionpolicy remotesigned ' and/or '  Unblock-File <script> ' in powershell to run compiled winutil from desktop**
+*then run winutil Config | WinGet Reinstall (app installs hang on some systems without this - old?)
+*close and 
+
+reopen winutil and finally use json file to Install Apps and then Run Tweaks again
+
 
 settings|system|optional features|more windows features (for sandbox and .net 2,3,3.5 etc)
 
@@ -145,6 +151,7 @@ Copy Drivers and Snappy Installer to win2go drive and its ready to boot
 
 # Unblock every file under C:\Downloads and its subfolders
 Get-ChildItem -Path "C:\Downloads" -Recurse | Unblock-File
+
 
 
 
