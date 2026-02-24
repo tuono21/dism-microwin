@@ -118,12 +118,12 @@ REBOOT and connect network=========
 allow windows drivers to install via windowsupdate
 ??(skipping this step might let windowsupdate overwrite manually installed drivers with older ones later - happened with AMD Ryzen Vega)
 
-drivers and updates that were just installed will be visible now in Settings|Windows Update|Update History
+drivers and updates that were just installed (if any) will be visible now in Settings|Windows Update|Update History
 
 Run windowsupdate (should be just defender and small updates if the latest cumulative and .net updates were added)
-and then Store updates
+and then Store updates (wait for store til after tweaks again? to remove some options) 
 
-reopen winutil and finally use json file to Install Apps and then Run Tweaks again
+reopen online newer winutil and finally use json file to Install Apps and then Run Tweaks again
 
 bleachbit and windows disk cleanup
 
@@ -162,3 +162,4 @@ Copy Drivers and Snappy Installer to win2go drive and its ready to boot
 
 # Unblock every file under C:\Downloads and its subfolders
 Get-ChildItem -Path "C:\Downloads" -Recurse | Unblock-File
+
