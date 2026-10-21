@@ -20,13 +20,13 @@ C:\win11reupdates - winre update cab file
 --1st check index number to modify - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
---convert .esd install file to wim
+--convert .esd install file to wim if needed
 dism /Export-Image /SourceImageFile:c:\win11iso\sources\install.esd /SourceIndex:6 /DestinationImageFile:c:\win11iso\sources\install.wim /Compress:max /CheckIntegrity
 
 --next mount install.wim from within extracted iso to another folder - note index below
 dism /loglevel=1 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
-========== Adding Safe OS Dynamic Update .cab file into winre.wim first
+========== Adding Safe OS Dynamic Update .cab file into winre.wim first  ===============================================================================================
 --index 1 for winre.wim as its the only one in this file 
 Dism /Mount-Wim /WimFile:C:\win11mount\Windows\System32\Recovery\winre.wim /index:1 /MountDir:C:\win11mountwinre
 
@@ -53,7 +53,7 @@ Install Time : 12/10/2025 4:35 AM            ***CURREnT DATE HERE
 dism /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
 
 Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
-========= end winre update
+========= end winre update  ===============================================================================================================================================
 
 --add windows update packages to the mounted WIM index
 dism /loglevel=1 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
@@ -77,7 +77,7 @@ Next:
 
 Run ISO through microwin/winutil (using same index number from earlier) without an apps/tweaks json file to remove MS spyware and bloat and bypass hardware restrictions and online accounts
 
-=============================================================================
+=======================================================================================================================================
 
 *** OR SKIP ALL THAT AND USE MODIFIED WINUTIL 01-26-26 TO INSERT CUMULATIVE AND .NET UPDATES WITHIN MICROWIN (c:\win11updates folder) ***
 *** USE BASE MONTHLY CUMULATIVE WITH LATER PREVIEW UPDATES for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL EARLIER PATCH AGAIN! :( ***
@@ -87,7 +87,7 @@ Run ISO through microwin/winutil (using same index number from earlier) without 
 
 c:\win11updates must exist and have updates or 012626 microwin fails
 
-==============================================================================
+===========================================================================================================================================
 
 AFTER ISO PREPARED
 
