@@ -20,6 +20,9 @@ C:\win11reupdates - winre update cab file
 --1st check index number to modify - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
+--convert .esd install file to wim
+dism /Export-Image /SourceImageFile:c:\win11iso\sources\install.esd /SourceIndex:6 /DestinationImageFile:c:\win11iso\sources\install.wim /Compress:max /CheckIntegrity
+
 --next mount install.wim from within extracted iso to another folder - note index below
 dism /loglevel=1 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
