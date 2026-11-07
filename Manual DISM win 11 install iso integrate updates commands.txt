@@ -35,7 +35,7 @@ c:\win11updates-cab - put Setup Dynamic Update cab files here. They will be manu
 
 =======================================================================================================================================
 
---1st check index number to modify within the wim file - probably 1 for Home or 6 for Pro
+--1st check index number to modify within the install.wim file - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
 --convert .esd install file to wim if needed - probably only if you used windows media creation tool to dl the ISO - ESD has heavier compression
@@ -73,18 +73,18 @@ dism /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
 Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 ========= end winre update  ===============================================================================================================================================
 
+-------------------------------------------------
+--Use 7zip to open the Setup Dynamic Update cab file and extract it directly into the sources folder within c:\win11iso
+-- verify matching files/folders will be overwritten. Language folders that are in the cab but not used in this iso can be safely ignored. This covers setup run from within an existing windows installation.
+-- To also update the version of setup within Windows PE that's used when booted from an ISO image, use the same process above on boot.wim as was used on winre.wim
+-------------------------------------------------
+
+
 --add windows update .msu packages to the mounted WIM index
 dism /loglevel=1 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11updates"
 
 --verify that the newly integrated packages appear correctly with current date/time
 dism /image:"c:\win11mount" /get-packages
-
-
--------------------------------------------------
---Use 7zip to open the Setup Dynamic Update cab file and extract it directly into the sources folder within c:\win11iso
--- verify matching files/folders will be overwritten and language folders in the cab but not used in this iso can be ignored
--------------------------------------------------
-
 
 --save the changes and unmount the image - when complete, mount folder should be empty and sources\install.wim newer
 dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /commit
