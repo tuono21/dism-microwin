@@ -72,7 +72,7 @@ Release Type : Update
 Install Time : 12/10/2025 4:35 AM            ***CURREnT DATE HERE
 
 --cleanup and commit winre.wim file - when complete, win11mountwinre should be empty and winre.wim file in sys32/recovery will have the current date/time. Likely will give error at the end about files being in use but as long as mount folder is empty, alls good
-dism /loglevel=1 /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
+OLD VERSIONS** dism /loglevel=1 /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
 
 Dism /loglevel=1 /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 ========= end winre update  ===============================================================================================================================================
