@@ -94,11 +94,11 @@ dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /discard
 --Not too helpful with ventoy though
 
 --use oscdimg.exe (from adk install) to create a new iso in the update folder from the updated files in the win11iso folder
-&"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\Users\user\Desktop\win11Pro_26H2_LateOct2026_Updates.iso
+&"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\Users\user\Desktop\win11_26H2_LateOct2026_Updates.iso
 
 Next:
 
-Run ISO through winutil (using same index number from earlier) to remove MS spyware and bloat and bypass hardware restrictions and online accounts
+Run ISO through winutil (using same index number from earlier) to remove MS spyware and bloat and bypass hardware restrictions and online accounts. This also only leaves the one index number version in the final iso after processing.
 
 ===========================================================================================================================================
 
