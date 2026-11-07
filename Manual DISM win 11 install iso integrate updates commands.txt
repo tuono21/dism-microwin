@@ -34,6 +34,8 @@ c:\win11mountwinre - empty - will contain the extracted winre.wim for Safe OS Dy
 c:\win11updates-cab - put Setup Dynamic Update cab files here. They will be manually extracted when needed 
 
 =======================================================================================================================================
+--If errors occurred previously and you want to unmount everything and start over. delete win11iso files and re-extract!
+dism /cleanup-mountpoints
 
 --1st check index number to modify within the install.wim file - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
