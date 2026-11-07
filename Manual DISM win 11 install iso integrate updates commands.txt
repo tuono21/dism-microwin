@@ -16,7 +16,7 @@ create 3 to 6 folders depending on the updates being integrated...
 *** A windows ISO contains some files in the root of the filesystem and some folders to boot the setup program
 *** The sources folder contains all the files that are used when setup is run as well as the setup program itself
 *** The 8GB install.wim file in the sources folder is an archive containing all Windows files in the standard folder structure
-*** The 700MB boot.wim is also inside the sources folder and is the Windows Preinstallation Environment which contains the setup program and drivers used during Windows installation.
+*** The 700MB boot.wim is also inside the sources folder and is the Windows Preinstallation Environment which contains the setup program and drivers used during Windows installation. Index 2 for Setup
 *** The 800MB winre.wim is inside the install.wim archive. It contains the recovery environment files to be installed in a standard hidden partition. Since it's an archive inside another wim, another temp folder is needed to open and work within it
 
 *** Most updates that can be slipstreamed into the install ISO get inserted into install.wim
