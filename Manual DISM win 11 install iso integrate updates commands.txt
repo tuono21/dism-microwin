@@ -40,20 +40,20 @@ dism /Cleanup-Mountpoints
 dism /Cleanup-Wim
 
 --1st check index number to modify within the install.wim file - probably 1 for Home or 6 for Pro
-dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
+dism /loglevel=1 /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
 --convert .esd install file to wim if needed - probably only if you used windows media creation tool to dl the ISO - ESD has heavier compression
-dism /Export-Image /SourceImageFile:c:\win11iso\sources\install.esd /SourceIndex:6 /DestinationImageFile:c:\win11iso\sources\install.wim /Compress:max /CheckIntegrity
+dism /loglevel=1 /Export-Image /SourceImageFile:c:\win11iso\sources\install.esd /SourceIndex:6 /DestinationImageFile:c:\win11iso\sources\install.wim /Compress:max /CheckIntegrity
 
 --next mount install.wim from within extracted iso to the empty mount folder - note index below
 dism /loglevel=1 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
 ========== Adding Safe OS Dynamic Update .cab file into winre.wim first - skip ahead if not needed ===============================================================================================
 --mount winre.wim into temp directory - index 1 is used for winre.wim as its the only index used in this file 
-Dism /Mount-Wim /WimFile:C:\win11mount\Windows\System32\Recovery\winre.wim /index:1 /MountDir:C:\win11mountwinre
+Dism /loglevel=1 /Mount-Wim /WimFile:C:\win11mount\Windows\System32\Recovery\winre.wim /index:1 /MountDir:C:\win11mountwinre
 
 --add update cab file into winre mount folder
-Dism /Add-Package /Image:C:\win11mountwinre /PackagePath:"C:\win11reupdates"
+Dism /loglevel=1 /Add-Package /Image:C:\win11mountwinre /PackagePath:"C:\win11reupdates"
 
 --check if package installed correctly with 
 Dism /Image:C:\win11mountwinre\ /Get-Packages
@@ -72,9 +72,9 @@ Release Type : Update
 Install Time : 12/10/2025 4:35 AM            ***CURREnT DATE HERE
 
 --cleanup and commit winre.wim file - when complete, win11mountwinre should be empty and winre.wim file in sys32/recovery will have the current date/time. Likely will give error at the end about files being in use but as long as mount folder is empty, alls good
-dism /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
+dism /loglevel=1 /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
 
-Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
+Dism /loglevel=1 /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 ========= end winre update  ===============================================================================================================================================
 
 -------------------------------------------------
