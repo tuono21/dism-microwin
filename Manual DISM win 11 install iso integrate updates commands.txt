@@ -2,7 +2,7 @@ MANUALLY slipstream WINDOWS 11 UPDATES INTO WINDOWS ISO
 ==============================================================================================
 
 May want to start by:
-	-installing the Windows Assessment and Deployment Kit (only deployment kit needed)
+	-installing the Windows Assessment and Deployment Kit (only Deployment Tools are needed)
 	-deleting old logs in c:\windows\logs\dism\*
 	-disabling antivirus
 
