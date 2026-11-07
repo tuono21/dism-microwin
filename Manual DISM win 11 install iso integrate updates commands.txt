@@ -9,6 +9,7 @@ May want to start by:
 		*the loglevel command option used in dism commands is needed to prevent 500+MB logs each run!
 
 	-disabling antivirus - speeds up processing especially on slower PCs
+		* set a process exclusion for C:\WINDOWS\system32\Dism.exe in Microsoft Defender Antivirus
 
 create 3 to 6 folders depending on the updates being integrated...
 
@@ -21,10 +22,10 @@ create 3 to 6 folders depending on the updates being integrated...
 *** Finally, some updates (for the installer itself, for example) don't use dism and just get copied into the extracted ISO
 ***  file manually
 
-c:\win11iso    - extract the original iso file into this folder first with 7zip *** !!!! ***
+c:\win11iso    - ** extract the original iso file into this folder first with 7zip ** Delete all files for new project
 c:\win11mount  - empty - this will contain the extracted install.wim from the above iso and be a work folder
 c:\win11update - put patches here, i.e. cumulative update, last preview and .net msu files from windows update catalog
-*** USE BASE MONTHLY CUMULATIVE (2nd tues) WITH LAST PREVIEW UPDATE for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL EARLIER PATCH AGAIN WHEN INSTALL IS COMPLETE! :( ***
+*** USE BASE MONTHLY CUMULATIVE (2nd tues) WITH LAST PREVIEW UPDATE for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL THE BASE PATCH WHEN INSTALL IS COMPLETE! :( ***
 
 C:\win11reupdates - winre update cab file go inside here, if needed
 c:\win11mountwinre - empty - will contain the extracted winre.wim for Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE)
