@@ -3,6 +3,7 @@ MANUALLY slipstream WINDOWS 11 UPDATES INTO WINDOWS ISO
 
 May want to start by:
 	-installing the Windows Assessment and Deployment Kit (only Deployment Tools are needed)
+		latest is: Windows ADK 10.1.26100.9457 (September 2026)
 	-deleting old logs in c:\windows\logs\dism\*
 	-disabling antivirus
 
