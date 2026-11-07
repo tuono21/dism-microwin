@@ -82,7 +82,7 @@ Dism /loglevel=1 /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 -------------------------------------------------
 --Use 7zip to open the Setup Dynamic Update cab file and extract it directly into the sources folder within c:\win11iso
 -- verify matching files/folders will be overwritten. Language folders that are in the cab but not used in this iso can be safely ignored. This covers setup run from within an existing windows installation.
--- To also update the version of setup within Windows PE that's used when booted from an ISO image, use the same process above on boot.wim as was used on winre.wim
+-- To also update the version of setup within Windows PE that's used when booted from an ISO image, use the same process above on boot.wim as was used on winre.wim using index 2
 -------------------------------------------------
 
 
