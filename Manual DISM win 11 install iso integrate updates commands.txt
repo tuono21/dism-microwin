@@ -1,41 +1,53 @@
-MANUALLY slipstream WINDOWS 11 UPDATES INTO WINDOWS ISO
+MANUALLY SLIPSTREAM WINDOWS 11 UPDATES INTO WINDOWS INSTALL ISO
 ==============================================================================================
 
 May want to start by:
 	-installing the Windows Assessment and Deployment Kit (only Deployment Tools are needed)
-		latest is: Windows ADK 10.1.26100.9457 (September 2026)
-	-deleting old logs in c:\windows\logs\dism\*
-	-disabling antivirus
+		*latest is: Windows ADK 10.1.26100.9457 (September 2026)
 
-	*loglevel lines below needed to prevent 500+MB logs each run!
+	-deleting old logs in c:\windows\logs\dism\*  - they can get large and hard to search if errors are encountered
+		*the loglevel command option used in dism commands is needed to prevent 500+MB logs each run!
 
-create 3 or 5 folders
+	-disabling antivirus - speeds up processing especially on slower PCs
+
+create 3 to 6 folders depending on the updates being integrated...
+
+*** A windows ISO contains some files in the root of the filesystem and some folders to boot the setup program
+*** The sources folder contains all the files that are used when setup is run as well as the setup program itself
+*** The install.wim file in the sources folder is an archive containing files to be installed
+*** Within install.wim is another archive, winre.wim, which is the smaller recovery environment files to be installed
+*** Most updates that can be slipstreamed into the install ISO get inserted into install.wim
+*** Any updates specific to the recovery environment are inserted into winre.wim 
+*** Finally, some updates (for the installer itself, for example) don't use dism and just get copied into the extracted ISO
+***  file manually
 
 c:\win11iso    - extract the original iso file into this folder first with 7zip *** !!!! ***
-c:\win11mount  - this will contain the extracted install.wim from the above iso and be a work folder
-c:\win11update - put patches here, i.e. latest cumulative update and .net msu files from windows update catalog
-*** USE BASE MONTHLY CUMULATIVE WITH LATER PREVIEW UPDATES for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL EARLIER PATCH AGAIN! :( ***
+c:\win11mount  - empty - this will contain the extracted install.wim from the above iso and be a work folder
+c:\win11update - put patches here, i.e. cumulative update, last preview and .net msu files from windows update catalog
+*** USE BASE MONTHLY CUMULATIVE (2nd tues) WITH LAST PREVIEW UPDATE for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL EARLIER PATCH AGAIN WHEN INSTALL IS COMPLETE! :( ***
 
-C:\win11reupdates - winre update cab file
-c:\win11mountwinre - will contain the extracted winre.wim for Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE)
+C:\win11reupdates - winre update cab file go inside here, if needed
+c:\win11mountwinre - empty - will contain the extracted winre.wim for Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE)
+
+c:\win11updates-cab - Setup Dynamic Update cab files go in here and will be manually extracted when needed 
 
 =======================================================================================================================================
 
---1st check index number to modify - probably 1 for Home or 6 for Pro
+--1st check index number to modify within the wim file - probably 1 for Home or 6 for Pro
 dism /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
 
---convert .esd install file to wim if needed
+--convert .esd install file to wim if needed - probably only if you used windows media creation tool to dl the ISO - ESD has heavier compression
 dism /Export-Image /SourceImageFile:c:\win11iso\sources\install.esd /SourceIndex:6 /DestinationImageFile:c:\win11iso\sources\install.wim /Compress:max /CheckIntegrity
 
---next mount install.wim from within extracted iso to another folder - note index below
+--next mount install.wim from within extracted iso to the empty mount folder - note index below
 dism /loglevel=1 /mount-wim /wimfile:"c:\win11iso\sources\install.wim" /index:6 /mountdir:"c:\win11mount"
 
-========== Adding Safe OS Dynamic Update .cab file into winre.wim first  ===============================================================================================
---index 1 for winre.wim as its the only one in this file 
+========== Adding Safe OS Dynamic Update .cab file into winre.wim first - skip ahead if not needed ===============================================================================================
+--mount winre.wim into temp directory - index 1 is used for winre.wim as its the only index used in this file 
 Dism /Mount-Wim /WimFile:C:\win11mount\Windows\System32\Recovery\winre.wim /index:1 /MountDir:C:\win11mountwinre
 
---dec 9 2025 update cab file
-Dism /Add-Package /Image:C:\win11mountwinre /PackagePath:"C:\win11reupdates\windows11.0-kb5072537-x64_778caa2b6baaaf652e027673a94f480d03072b3b.cab"
+--add update cab file into winre mount folder
+Dism /Add-Package /Image:C:\win11mountwinre /PackagePath:"C:\win11reupdates"
 
 --check if package installed correctly with 
 Dism /Image:C:\win11mountwinre\ /Get-Packages
@@ -53,29 +65,36 @@ State : Installed
 Release Type : Update
 Install Time : 12/10/2025 4:35 AM            ***CURREnT DATE HERE
 
---cleanup and commit winre.wim file - when complete, win11mountwinre should be empty and wim file in sys32/recovery newer
+--cleanup and commit winre.wim file - when complete, win11mountwinre should be empty and winre.wim file in sys32/recovery will have the current date/time. Likely will give error at the end about files being in use but as long as mount folder is empty, alls good
 dism /image:C:\win11mountwinre /cleanup-image /StartComponentCleanup /ResetBase
 
 Dism /Unmount-Image /MountDir:"C:\win11mountwinre" /Commit
 ========= end winre update  ===============================================================================================================================================
 
---add windows update packages to the mounted WIM index
-dism /loglevel=1 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11update"
+--add windows update .msu packages to the mounted WIM index
+dism /loglevel=1 /add-package /image:"c:\win11mount" /PackagePath:"c:\win11updates"
 
---verify that the newly integrated packages appear correctly
+--verify that the newly integrated packages appear correctly with current date/time
 dism /image:"c:\win11mount" /get-packages
+
+
+-------------------------------------------------
+--Use 7zip to open the Setup Dynamic Update cab file and extract it directly into the sources folder within c:\win11iso
+-- verify matching files/folders will be overwritten and language folders in the cab but not used in this iso can be ignored
+-------------------------------------------------
+
 
 --save the changes and unmount the image - when complete, mount folder should be empty and sources\install.wim newer
 dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /commit
 
-possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already
+possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already - probably can skip this
 dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /discard
 
 --If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
 --Not too helpful with ventoy though
 
 --use oscdimg.exe (from adk install) to create a new iso in the update folder from the updated files in the win11iso folder
-&"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\win11update\win11Pro_26H2_Oct2026_Updates.iso
+&"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\win11iso\boot\etfsboot.com#pEF,e,bc:\win11iso\efi\microsoft\boot\efisys.bin c:\win11iso c:\Users\user\Desktop\win11Pro_26H2_winutil_LateOct2026_Updates.iso
 
 Next:
 
