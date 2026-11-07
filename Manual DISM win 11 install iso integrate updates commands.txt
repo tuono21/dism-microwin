@@ -15,22 +15,22 @@ create 3 to 6 folders depending on the updates being integrated...
 
 *** A windows ISO contains some files in the root of the filesystem and some folders to boot the setup program
 *** The sources folder contains all the files that are used when setup is run as well as the setup program itself
-*** The install.wim file in the sources folder is an archive containing files to be installed
-*** Within install.wim is another archive, winre.wim, which is the smaller recovery environment files to be installed
+*** The 8GB install.wim file in the sources folder is an archive containing files in standard folder structure to be installed
+*** Within install.wim is another archive, 700MB winre.wim, which is the smaller recovery environment files to be installed in a standard hidden partition
+
 *** Most updates that can be slipstreamed into the install ISO get inserted into install.wim
 *** Any updates specific to the recovery environment are inserted into winre.wim 
-*** Finally, some updates (for the installer itself, for example) don't use dism and just get copied into the extracted ISO
-***  file manually
+*** Finally, some updates (for the installer itself, for example) don't use dism and just get extracted and copied into the ISO folder manually
 
 c:\win11iso    - ** extract the original iso file into this folder first with 7zip ** Delete all files for new project
 c:\win11mount  - empty - this will contain the extracted install.wim from the above iso and be a work folder
 c:\win11update - put patches here, i.e. cumulative update, last preview and .net msu files from windows update catalog
 *** USE BASE MONTHLY CUMULATIVE (2nd tues) WITH LAST PREVIEW UPDATE for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL THE BASE PATCH WHEN INSTALL IS COMPLETE! :( ***
 
-C:\win11reupdates - winre update cab file go inside here, if needed
+C:\win11reupdates - put winre update cab files here, if needed
 c:\win11mountwinre - empty - will contain the extracted winre.wim for Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE)
 
-c:\win11updates-cab - Setup Dynamic Update cab files go in here and will be manually extracted when needed 
+c:\win11updates-cab - put Setup Dynamic Update cab files here. They will be manually extracted when needed 
 
 =======================================================================================================================================
 
