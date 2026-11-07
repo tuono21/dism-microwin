@@ -38,6 +38,8 @@ c:\win11updates-cab - put Setup Dynamic Update cab files here. They will be manu
 dism /Get-MountedWimInfo
 dism /Cleanup-Mountpoints
 dism /Cleanup-Wim
+dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /discard
+
 
 --1st check index number to modify within the install.wim file - probably 1 for Home or 6 for Pro
 dism /loglevel=1 /get-imageinfo /imagefile:"c:\win11iso\sources\install.wim"
@@ -92,9 +94,6 @@ dism /image:"c:\win11mount" /get-packages
 
 --save the changes and unmount the image - when complete, mount folder should be empty and sources\install.wim newer
 dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /commit
-
-possibly doesn't fully unmount (directory empty?) - still failed and folder was empty already - probably can skip this
-dism /loglevel=1 /unmount-wim /mountdir:"c:\win11mount" /discard
 
 --If making an ISO for USB using rufus, etcher or whatever, drivers or other files can be added to the iso folder to be available after last reboot.
 --Not too helpful with ventoy though
