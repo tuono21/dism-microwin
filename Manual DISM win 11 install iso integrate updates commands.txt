@@ -25,7 +25,7 @@ create 3 to 6 folders depending on the updates being integrated...
 
 c:\win11iso    - ** extract the original iso file into this folder first with 7zip ** Delete all files for new project
 c:\win11mount  - empty - this will contain the extracted install.wim from the above iso and be a work folder
-c:\win11update - put patches here, i.e. cumulative update, last preview and .net msu files from windows update catalog
+c:\win11updates - put patches here, i.e. cumulative update, last preview and .net msu files from windows update catalog
 *** USE BASE MONTHLY CUMULATIVE (2nd tues) WITH LAST PREVIEW UPDATE for Win11 and .NET - PREVIEW UPDATES WITHOUT BASE WILL ALLOW WINDOWSUPDATE TO INSTALL THE BASE PATCH WHEN INSTALL IS COMPLETE! :( ***
 
 C:\win11reupdates - put winre update cab files here, if needed
