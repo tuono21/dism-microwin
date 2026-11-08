@@ -32,6 +32,7 @@ C:\win11reupdates - put winre update cab files here, if needed
 c:\win11mountwinre - empty - will contain the extracted winre.wim for Safe OS Dynamic Update for Windows 11 - Windows recovery environment (WinRE)
 
 c:\win11updates-cab - put Setup Dynamic Update cab files here. They will be manually extracted when needed 
+c:\win11mountcab - empty
 
 =======================================================================================================================================
 --If errors occurred previously and you want to unmount everything and start over. If commands don't seem to work, may need to reboot - delete win11iso files and re-extract after running these commands!
